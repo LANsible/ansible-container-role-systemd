@@ -1,4 +1,9 @@
 ---
+- name: Install systemd, system-sysv
+  package:
+    name: "{{ systemd_packages }}"
+    state: present
+
 - name: We only want few core services run in the container.
   systemd:
     name: "{{ item }}"
