@@ -1,4 +1,7 @@
 ---
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}-family.yml"
+
 - name: Install systemd, system-sysv
   package:
     name: "{{ systemd_packages }}"
