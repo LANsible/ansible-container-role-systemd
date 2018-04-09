@@ -3,6 +3,6 @@
   systemd:
     name: "{{ item }}"
     masked: true
-  loop: "{{ systemd_masked }}"
+  with_items: "{{ systemd_masked }}"
 
 # - command: systemctl set-default multi-user.target
