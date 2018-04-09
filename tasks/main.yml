@@ -1,8 +1,8 @@
 ---
 - name: We only want few core services run in the container.
   systemd:
-    name:
+    name: "{{ item }}"
     maskes: true
-  loops: "{{ systemd_masked }}"
+  loop: "{{ systemd_masked }}"
 
 # - command: systemctl set-default multi-user.target
