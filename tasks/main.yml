@@ -3,6 +3,6 @@
   systemd:
     name: "{{ item }}"
     masked: true
-  loop: "{{ systemd_masked }}"
+  loop: "{{ lookup('list', systemd_masked) }}"
 
 # - command: systemctl set-default multi-user.target
