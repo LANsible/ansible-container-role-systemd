@@ -7,6 +7,12 @@
     name: "{{ systemd_packages }}"
     state: present
 
+- name: Start D-Bus
+  service:
+    name: dbus
+    state: started
+  when: ansible_os_family == 'Debian'
+
 - name: We only want few core services run in the container.
   systemd:
     name: "{{ item }}"
