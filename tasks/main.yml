@@ -1,3 +1,4 @@
 ---
 - include_tasks: prerequisite.yml
 - include_tasks: install-systemctl-replacement.yml
+- include_role: cleanup
