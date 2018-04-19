@@ -1,4 +1,5 @@
 ---
+systemctl_location: /bin/systemctl
 systemd_packages:
   - dbus
   - systemd
