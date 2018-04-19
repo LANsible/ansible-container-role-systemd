@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+Package: systemd
+Pin: version {{ systemd_version|replace('systemd ', '') }}
+Pin-Priority: 900

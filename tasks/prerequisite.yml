@@ -1,0 +1,48 @@
+---
+- block:
+    - name: Systemctl prerequisites with apt
+      apt:
+        name: systemd
+        state: present
+        update_cache: true
+
+    - name: Get systemd version
+      command: systemctl --version
+      changed_when: false
+      register: systemd_version
+
+    - name: Add apt pin preferences
+      template:
+        src: apt_pinned_packages.perf.j2
+        dest: "/etc/apt/preferences.d/systemd_pinned.pref"
+
+  when: ansible_os_family == 'Debian'
+
+- block:
+    - name: Systemctl prerequisites with yum
+      yum:
+        name:
+          - systemd
+          - yum-versionlock
+        state: present
+        update_cache: true
+
+    - name: Versionlock systemd
+      command: yum-versionlock systemd
+      changed_when: false
+
+  when: ansible_distribution == 'CentOS'
+
+- block:
+    - name: Systemctl prerequisites with dnf
+      dnf:
+        name:
+          - systemd
+          - dnf-versionlock
+        state: present
+        update_cache: true
+
+    - name: Versionlock systemd
+      command: dnf-versionlock systemd
+
+  when: ansible_os_family == 'Fedora'

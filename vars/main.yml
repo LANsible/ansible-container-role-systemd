@@ -1,14 +1,2 @@
 ---
-systemd_masked:
-  - dev-hugepages.mount
-  - sys-fs-fuse-connections.mount
-  - sys-kernel-config.mount
-  - display-manager.service
-  - getty@.service
-  - systemd-logind.service
-  - systemd-remount-fs.service
-  - getty.target
-  - graphical.target
-  - console-getty.service
-  - systemd-vconsole-setup.service
-  - kmod-static-nodes.service
+systemctl_location: /usr/bin/systemctl

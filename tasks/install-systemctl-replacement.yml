@@ -1,0 +1,6 @@
+---
+- name: "Install systemctl-replacement version: {{ systemctl_replacement_version }}"
+  get_url:
+    url: "https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/{{ systemctl_replacement_version }}/files/docker/systemctl.py"
+    dest: "{{ systemctl_location }}"
+    mode: 0771

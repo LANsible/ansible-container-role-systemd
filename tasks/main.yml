@@ -1,8 +1,3 @@
 ---
-- name: We only want few core services run in the container.
-  systemd:
-    name:
-    maskes: true
-  loops: "{{ systemd_masked }}"
-
-# - command: systemctl set-default multi-user.target
+- include_tasks: prerequisite.yml
+- include_tasks: install-systemctl-replacement.yml
