@@ -28,7 +28,7 @@
         update_cache: true
 
     - name: Versionlock systemd
-      command: yum-versionlock systemd
+      command: yum versionlock systemd
       changed_when: false
 
   when: ansible_distribution == 'CentOS'
@@ -43,6 +43,6 @@
         update_cache: true
 
     - name: Versionlock systemd
-      command: dnf-versionlock systemd
+      command: dnf versionlock systemd
 
   when: ansible_os_family == 'Fedora'
