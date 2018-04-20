@@ -1,3 +1,2 @@
 ---
-systemd_packages:
-  - systemd
+systemd_packages: "{{ default_systemd_packages }}"

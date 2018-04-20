@@ -2,7 +2,7 @@
 - block:
     - name: Systemctl prerequisites with apt
       apt:
-        name: systemd
+        name: "{{ systemd_packages }}"
         state: present
         update_cache: true
 
@@ -21,28 +21,32 @@
 - block:
     - name: Systemctl prerequisites with yum
       yum:
-        name:
-          - systemd
-          - yum-versionlock
+        name: "{{ systemd_packages }}"
         state: present
         update_cache: true
 
-    - name: Versionlock systemd
-      command: yum versionlock systemd
-      changed_when: false
+    - name: Exclude systemd from updates
+      lineinfile:
+        dest: /etc/yum.conf
+        regexp: '^exclude='
+        line: "exclude=systemd*"
+        state: present
 
   when: ansible_distribution == 'CentOS'
 
 - block:
     - name: Systemctl prerequisites with dnf
       dnf:
-        name:
-          - systemd
-          - dnf-versionlock
+        name: "{{ systemd_packages }}"
         state: present
         update_cache: true
 
-    - name: Versionlock systemd
-      command: dnf versionlock systemd
+    - name: Exclude systemd from updates
+      lineinfile:
+        dest: /etc/dnf/dnf.conf
+        regexp: '^exclude='
+        insertafter: '^exclude='
+        line: "exclude=systemd*"
+        state: present
 
   when: ansible_os_family == 'Fedora'

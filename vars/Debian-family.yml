@@ -1,6 +1,3 @@
 ---
 systemctl_location: /bin/systemctl
-systemd_packages:
-  - dbus
-  - systemd
-  - systemd-sysv
+systemd_packages: "{{ default_systemd_packages }}"
