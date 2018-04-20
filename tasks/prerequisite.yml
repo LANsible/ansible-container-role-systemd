@@ -49,4 +49,4 @@
         line: "exclude=systemd*"
         state: present
 
-  when: ansible_os_family == 'Fedora'
+  when: ansible_distribution == 'Fedora'
