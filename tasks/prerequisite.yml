@@ -39,7 +39,6 @@
       dnf:
         name: "{{ systemd_packages }}"
         state: present
-        update_cache: true
 
     - name: Exclude systemd from updates
       lineinfile:
