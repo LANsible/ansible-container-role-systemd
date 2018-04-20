@@ -3,4 +3,5 @@
   get_url:
     url: "https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/{{ systemctl_replacement_version }}/files/docker/systemctl.py"
     dest: "{{ systemctl_location }}"
-    mode: 0771
+    force: true
+    mode: 0775
