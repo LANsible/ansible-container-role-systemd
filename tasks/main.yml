@@ -1,4 +1,5 @@
 ---
+- include_vars: "{{ ansible_os_family }}-family.yml"
 - include_tasks: prerequisite.yml
 - include_tasks: install-systemctl-replacement.yml
 - include_role:
