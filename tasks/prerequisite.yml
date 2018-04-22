@@ -35,11 +35,6 @@
   when: ansible_distribution == 'CentOS'
 
 - block:
-    - name: Systemctl prerequisites with dnf
-      dnf:
-        name: "{{ systemd_packages }}"
-        state: present
-
     - name: Exclude systemd from updates
       lineinfile:
         dest: /etc/dnf/dnf.conf
