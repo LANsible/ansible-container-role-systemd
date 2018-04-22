@@ -11,10 +11,12 @@
       changed_when: false
       register: systemd_version
 
+    #FIXME: Should be working without changed_false
     - name: Add apt pin preferences
       template:
         src: apt_pinned_packages.perf.j2
         dest: "/etc/apt/preferences.d/systemd_pinned.pref"
+      changed_when: false
 
   when: ansible_os_family == 'Debian'
 
