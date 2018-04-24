@@ -1,3 +1,2 @@
 ---
-systemctl_location: /bin/systemctl
 systemd_packages: "{{ default_systemd_packages }}"
