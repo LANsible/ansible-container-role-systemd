@@ -5,3 +5,8 @@
     dest: "{{ systemctl_location }}"
     force: true
     mode: 0775
+
+- name: Create /run/systemd/system to let Ansible modules work
+  file:
+    path: /run/systemd/system
+    state: directory
