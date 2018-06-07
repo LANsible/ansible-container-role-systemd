@@ -2,4 +2,5 @@
 systemctl_location: /usr/bin/systemctl
 default_systemd_packages:
   - systemd
+  - systemd-sysv
   - python
